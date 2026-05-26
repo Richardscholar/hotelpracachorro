@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatos - Hotel Bom Pra Cachorro</title>
+  <link rel="stylesheet" href="contatos.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🐾</span>
+      <span>HOTEL BOM PRA CACHORRO</span>
+    </a>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="hero">
+      <h1>Contatos</h1>
+      <p>Fale com nossa equipe apaixonada por pets 🐶❤️</p>
+    </section>
+
+    <section class="cards-container">
+
+      <div class="card" onclick="showContact('Alexandre')">
+        <div class="icon">👨‍💼</div>
+        <h2>Alexandre</h2>
+        <p>Atendimento & Suporte</p>
+      </div>
+
+      <div class="card" onclick="showContact('Yago')">
+        <div class="icon">👨‍💻</div>
+        <h2>Yago</h2>
+        <p>Desenvolvedor do Site</p>
+      </div>
+
+      <div class="card" onclick="showContact('Lucas')">
+        <div class="icon">🐕</div>
+        <h2>Lucas</h2>
+        <p>Cuidador de Pets</p>
+      </div>
+
+      <div class="card" onclick="showContact('João')">
+        <div class="icon">🏨</div>
+        <h2>João</h2>
+        <p>Gerente do Hotel</p>
+      </div>
+
+    </section>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <h2 id="modalName"></h2>
+        <p id="modalInfo"></p>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="contatos.js"></script>
+</body>
+</html>
