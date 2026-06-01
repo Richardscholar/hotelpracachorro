@@ -1,181 +1,373 @@
-/* Links */
-a {
-    color: black;
-    text-decoration: none;
+/* ========================================
+   HOME PAGE STYLES - PADRONIZADO E ATUALIZADO
+======================================== */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a:hover {
-    color: #333;
+/* VARIÁVEIS */
+:root {
+  --primary-orange: #FFA500;
+  --orange-dark: #FF8C00;
+  --white: #FFFFFF;
+  --dark-gray: #333333;
+  --light-bg: #F8F3E8;
+  --shadow-light: 0 4px 15px rgba(0,0,0,0.1);
+  --shadow-card: 0 10px 40px rgba(0,0,0,0.2); /* Sombra do cadastro */
+  --transition: all 0.3s ease;
 }
 
-/* Reset de margin e padding do body */
+/* BODY */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #FFA500; /* fundo laranja principal */
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--orange-dark) 100%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Tela principal */
 .tela {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
 }
 
-/* Cabeçário completo */
+/* CABEÇÁRIO */
 .cabeçario {
-    display: flex;
-    align-items: center;             
-    justify-content: space-between;  
-    border: 2px solid #FFB733;         /* borda laranja escuro */
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #FFA500;  /* laranja principal */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
 }
 
 /* Logo */
 .logo {
-    border: 1px solid #FFB733; /* borda em tom laranja escuro */
-    width: 300px;
-    padding: 10px;
-    text-align: center;
-    box-sizing: border-box;
-    color: black;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+/* ÍCONE */
+.logo-icon {
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ANIMAÇÃO FLOAT */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ANIMAÇÃO DO CARD (Vinda do Cadastro) */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Links */
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--dark-gray);
 }
 
 /* Container dos links e botão */
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 40px; 
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Links individuais */
-.sobre_nos, .contatos, .planos, .cadastro {
-    font-size: 20px;
-    font-weight: lighter;
-    color: black;
+.sobre_nos,
+.contatos,
+.planos,
+.cadastro {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
 }
 
 /* Botão Login */
 #login {
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: none;
-    background-color: #FF8C00; /* laranja mais escuro */
-    color: white;
-    cursor: pointer;
-    font-weight: lighter;
-    transition: all 0.3s ease;
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--white);
+  color: var(--orange-dark);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: var(--transition);
 }
 
 #login:hover {
-    background-color: #FFA500; /* laranja claro */
-    color: black;
-    border: 1px solid #FFB733;
+  background-color: var(--dark-gray);
+  color: var(--white);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-2px);
 }
 
-/* Conteúdo da página com duas colunas */
+/* ========================================
+   CONTEÚDO CENTRAL (ESTILO CADASTRO)
+======================================== */
 .conteudo {
-    display: flex;               
-    align-items: flex-start;     
-    justify-content: space-between;
-    padding: 40px;
-    margin-top: 20px;
-    width: 90%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-    border: 2px solid #FFB733;    
-    background-color: #FF9C33;  /* laranja médio */
-    gap: 40px;                   
+  display: flex;
+  flex-direction: row; /* Horizontal / Deitada */
+  align-items: center; 
+  justify-content: space-between;
+  padding: 3rem;
+  margin: auto; /* Centraliza vertical e horizontalmente no espaço flexível */
+  width: 90%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  gap: 40px;
+  
+  /* Estilos herdados do login-card */
+  background-color: var(--white);
+  border-radius: 25px;
+  box-shadow: var(--shadow-card);
+  animation: slideUp 0.6s ease-out;
 }
 
 /* Coluna de texto */
 .texto {
-    flex: 1;                     
-    color: black;
+  flex: 1;
+  color: var(--dark-gray);
 }
 
-/* Coluna da imagem */
+.texto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--dark-gray);
+  font-weight: 800;
+}
+
+/* Coluna da imagem principal */
 .imagem {
-    border: 1px solid #FFB733;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .imagem img {
-    max-width: 100%;             
-    height: 300px;
-    width: 250px;
-    border-radius: 10px;         
+  max-width: 100%;
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow-light);
 }
 
-/* Nova div de serviços */
+/* Serviços */
 .servicos {
-    margin-top: 20px;            
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #FFB733;   /* laranja escuro para os cards */
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: var(--light-bg);
+  border: 2px solid #e0e0e0;
 }
 
 .servicos h3 {
-    margin-bottom: 10px;
-    text-align: center;
-    color: black;
+  margin-bottom: 15px;
+  text-align: left;
+  color: var(--orange-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .servicos ul {
-    list-style-type: none;       
-    padding-left: 0;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .servicos li {
-    margin-bottom: 10px;
-    padding: 12px 15px;
-    background-color: #FFA533;   /* laranja médio */
-    border-radius: 15px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  background-color: var(--white);
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--dark-gray);
+  border: 1px solid #eee;
+  transition: var(--transition);
 }
 
 .servicos li:hover {
-    transform: translateY(-2px);
-    background-color: #FF8C00; /* escurece no hover */
+  transform: translateX(5px);
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 2px rgba(255,165,0,0.15);
 }
 
-/* Responsividade para telas menores */
+/* ========================================
+   FOOTER STYLES (REDUZIDO E PRETO)
+======================================== */
+
+footer {
+  background-color: #000000; /* Fundo totalmente preto */
+  color: #FFFFFF;
+  padding: 15px 20px; /* Tamanho significativamente reduzido */
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Imagem no rodapé */
+.footer-image {
+  flex-shrink: 0;
+}
+
+.footer-image img {
+  height: 70px; /* Proporcional à caixa reduzida do rodapé */
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--primary-orange);
+}
+
+/* Seções do Footer */
+.footer-section {
+  text-align: left;
+}
+
+.footer-section h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #FFFFFF; /* Letras brancas destacadas */
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer-section p {
+  line-height: 1.4;
+  color: #FFFFFF; /* Letras brancas destacadas */
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.footer-section a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.footer-section a:hover {
+  color: var(--primary-orange);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+@media (max-width: 992px) {
+  .conteudo {
+    flex-direction: column; /* Volta para vertical em telas menores */
+    padding: 2rem;
+  }
+  .imagem img {
+    height: auto;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+}
+
 @media (max-width: 768px) {
-    .conteudo {
-        flex-direction: column;
-        padding: 20px;
-    }
+  .cabeçario {
+    flex-direction: column;
+    gap: 15px;
+  }
 
-    .texto, .imagem {
-        flex: 1 1 100%;
-        text-align: center;
-    }
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
 
-    .imagem {
-        margin-top: 20px;
-    }
+  #login {
+    width: 100%;
+  }
 
-    .nav-links {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .texto h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
 
-    .logo {
-        margin-bottom: 10px;
-    }
+  /* Footer responsivo */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .conteudo {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .texto h2 {
+    font-size: 1.6rem;
+  }
+
+  .servicos h3 {
+    text-align: center;
+  }
 }
