@@ -37,25 +37,33 @@ header {
     padding: 1rem 2rem;
 
     display: flex;
+    justify-content: flex-start;
     align-items: center;
 }
 
 /* LOGO */
 .logo {
-    color: var(--white);
-    font-weight: 800;
-    font-size: 1.2rem;
-
-    text-decoration: none;
-
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  margin: 0;
+  padding: 0.5rem 0;
+  min-height: 56px;
 }
 
+.logo:hover {
+  color: var(--black);
+}
+
+/* ÍCONE */
 .logo-icon {
-    font-size: 2rem;
-    animation: float 3s ease-in-out infinite;
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
 }
 
 /* ANIMAÇÃO */
