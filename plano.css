@@ -5,24 +5,137 @@
   box-sizing: border-box;
 }
 
-/* BODY */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #FFA500;
-  color: black;
-  min-height: 100vh;
+/* VARIÁVEIS */
+:root {
+  --primary-orange: #FFA500;
+  --orange-dark: #FF8C00;
+  --white: #FFFFFF;
+  --dark-gray: #333333;
+  --light-bg: #F8F3E8;
+  --shadow-light: 0 4px 15px rgba(0,0,0,0.1);
+  --shadow-card: 0 10px 40px rgba(0,0,0,0.2); /* Sombra do cadastro */
+  --transition: all 0.3s ease;
 }
 
-/* LINKS */
-a {
-  color: black;
+/* CABEÇÁRIO */
+.cabeçario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   text-decoration: none;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+/* ÍCONE */
+.logo-icon {
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ANIMAÇÃO FLOAT */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ANIMAÇÃO DO CARD (Vinda do Cadastro) */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Links */
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 a:hover {
-  color: #333;
+  color: var(--dark-gray);
 }
 
+/* Container dos links e botão */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* Links individuais */
+.sobre_nos,
+.contatos,
+.planos,
+.cadastro {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Botão Login */
+#login {
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--white);
+  color: var(--orange-dark);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: var(--transition);
+}
+
+#login:hover {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-2px);
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-orange) 0%,
+    var(--orange-dark) 100%
+  );
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
 /* CONTAINER PRINCIPAL */
 .container {
   width: 100%;
@@ -33,19 +146,19 @@ a:hover {
 }
 
 /* LOGO */
-.logo {
-  text-align: center;
-  margin-bottom: 30px;
+.logo-planos {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.2rem;
+  transition: var(--transition);
 }
 
-.logo h2 {
-  font-size: 32px;
-  color: black;
-  border: 2px solid #FFB733;
-  background-color: #FF9C33;
-  border-radius: 15px;
-  padding: 15px;
-  display: inline-block;
+.logo-planos:hover {
+  opacity: 0.9;
 }
 
 /* TÍTULO */
@@ -53,28 +166,80 @@ a:hover {
   text-align: center;
   font-size: 42px;
   margin-bottom: 40px;
-  color: black;
-}
 
-/* CARDS DOS PLANOS */
-.card {
-  background-color: #FF9C33;
-  border: 2px solid #FFB733;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 25px;
+  color: var(--white);
+  font-weight: 800;
 
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  gap: 25px;
 
-  transition: all 0.3s ease;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  background-color: #FFA533;
+/* ÁREA DOS PLANOS */
+.card-planos {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+/* CARD */
+.card {
+  width: 320px;
+  background-color: #ffffff;
+  border: 2px solid #f0e6d2;
+  border-radius: 20px;
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+  transition: all 0.4s ease;
+
+  overflow: hidden;
+}
+
+/* ESCONDER CONTEÚDO */
+.info p,
+.beneficios {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+
+  transition:
+    opacity 0.4s ease,
+    max-height 0.4s ease,
+    margin-top 0.4s ease;
+}
+
+/* MOSTRAR SOMENTE O CARD HOVER */
+.card:hover .info p,
+.card:hover .beneficios {
+  opacity: 1;
+  max-height: 500px;
+  margin-top: 15px;
+}
+/* LISTA */
+.beneficios {
+  list-style: none;
+  text-align: left;
+  width: 100%;
+}
+
+.beneficios li {
+  margin-bottom: 10px;
+  color: #333;
 }
 
 /* EMOJI */
@@ -117,11 +282,9 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: #FFA500;
-  color: black;
-  border: 1px solid #FFB733;
+  background-color: var(--orange-dark);
+  transform: translateY(-2px);
 }
-
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
 
@@ -148,3 +311,119 @@ a:hover {
     width: 100%;
   }
 }
+/* ========================================
+   FOOTER STYLES (REDUZIDO E PRETO)
+======================================== */
+
+footer {
+  background-color: #000000; /* Fundo totalmente preto */
+  color: #FFFFFF;
+  padding: 15px 20px; /* Tamanho significativamente reduzido */
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Imagem no rodapé */
+.footer-image {
+  flex-shrink: 0;
+}
+
+.footer-image img {
+  height: 70px; /* Proporcional à caixa reduzida do rodapé */
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--primary-orange);
+}
+
+/* Seções do Footer */
+.footer-section {
+  text-align: left;
+}
+
+.footer-section h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #FFFFFF; /* Letras brancas destacadas */
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer-section p {
+  line-height: 1.4;
+  color: #FFFFFF; /* Letras brancas destacadas */
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.footer-section a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.footer-section a:hover {
+  color: var(--primary-orange);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+ @media (max-width: 768px) {
+
+  .cabeçario {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  #login {
+    width: 100%;
+  }
+
+  .card-planos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
+}
+
