@@ -4,36 +4,50 @@
     --black: #000000;
     --dark-gray: #333333;
     --light-bg: #F8F3E8;
+
     --shadow: 0 4px 15px rgba(0,0,0,0.1);
+
     --transition: all 0.3s ease;
 }
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BODY */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--white);
+    background-color: #FDF6EE;
     color: var(--dark-gray);
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg, var(--primary-orange) 0%, #FF8C00 100%);
+    background: linear-gradient(
+        135deg,
+        var(--primary-orange) 0%,
+        #FF8C00 100%
+    );
+
     padding: 1rem 2rem;
+
     display: flex;
     align-items: center;
 }
 
+/* LOGO */
 .logo {
     color: var(--white);
     font-weight: 800;
     font-size: 1.2rem;
+
     text-decoration: none;
+
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -44,16 +58,26 @@ header {
     animation: float 3s ease-in-out infinite;
 }
 
+/* ANIMAÇÃO */
 @keyframes float {
-    0%,100%{transform: translateY(0);}
-    50%{transform: translateY(-8px);}
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
-/* MAIN CONTENT */
+/* MAIN */
 main {
-    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
 }
 
+/* HERO */
 .hero {
     text-align: center;
     margin-bottom: 3rem;
@@ -66,80 +90,228 @@ main {
 
 .hero p {
     font-size: 1.2rem;
-    margin: 1rem 0;
+    margin: 1rem auto 0;
+    max-width: 700px;
+    text-align: center;
 }
 
 .hero-img {
-    font-size: 5rem;
-    margin-top: 1rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 140px;
+    margin: 1rem auto 0;
+    font-size: 4rem;
+    border-radius: 25px;
+    background-color: rgba(255, 165, 0, 0.12);
 }
 
-.mission, .team {
+/* MISSÃO E TIME */
+.mission,
+.team {
     background-color: var(--light-bg);
+
     padding: 2rem;
+
     border-radius: 20px;
+
     margin-bottom: 2rem;
+
     box-shadow: var(--shadow);
 }
 
-.mission h2, .team h2 {
+.mission h2,
+.team h2 {
     text-align: center;
     margin-bottom: 1rem;
     color: var(--primary-orange);
 }
 
+/* PARÁGRAFOS */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+.team-card > p {
+    font-weight: 600;
+    color: #5e5e5e;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+/* CARDS */
 .team-cards {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 2rem;
+
+    margin-top: 2rem;
 }
 
+/* CARD INDIVIDUAL */
 .team-card {
+    position: relative;
+
     background-color: var(--white);
-    padding: 1rem;
+
+    padding: 1.5rem;
+
     border-radius: 15px;
+
+    width: 230px;
+
     text-align: center;
-    width: 200px;
+
     box-shadow: var(--shadow);
+
     transition: var(--transition);
+
+    cursor: pointer;
 }
 
+/* HOVER */
 .team-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: translateY(-10px) scale(1.05);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
+/* FOTO */
 .team-photo {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1rem;
+    font-size: 2.8rem;
+    border-radius: 22px;
+    background-color: rgba(255, 165, 0, 0.12);
+}
+
+.team-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    color: var(--dark-gray);
+}
+
+/* CAIXA DE CONTATO */
+.contact-box {
+
+    position: absolute;
+
+    top: 110%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 230px;
+
+    background-color: var(--dark-gray);
+
+    color: var(--white);
+
+    padding: 1rem;
+
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 100;
+}
+
+/* TEXTO DA CAIXA */
+.contact-box p {
+
+    text-align: left;
+
+    font-size: 0.95rem;
+
+    margin: 0.5rem 0;
+
+    font-weight: 400;
+
+    color: var(--white);
+}
+
+/* MOSTRAR CAIXA */
+.team-card:hover .contact-box {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    top: 115%;
 }
 
 /* FOOTER */
 footer {
-    background: var(--dark-gray);
+
+    background-color: var(--dark-gray);
+
     color: var(--white);
-    padding: 1.5rem 2rem;
-    margin-top: 2rem;
+
+    padding: 1.5rem;
+
+    margin-top: 3rem;
 }
 
+/* NAVBAR */
 .nav-bar {
+
     display: flex;
+
     justify-content: center;
+
     gap: 2rem;
 }
 
+/* ITEM */
 .nav-item {
+
     color: var(--white);
+
     text-decoration: none;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     gap: 0.3rem;
+
     transition: var(--transition);
 }
 
+/* HOVER */
 .nav-item:hover {
     color: var(--primary-orange);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .team-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-box {
+        width: 200px;
+    }
 }
