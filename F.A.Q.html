@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Hotel Bom Pra Cachorro</title>
+    <link href="F.A.Q.css" rel="stylesheet">
+</head>
+<body>
+    <div class="tela">
+
+        <!-- Cabeçário -->
+        <div class="cabeçario">
+
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🐾</span>
+                <span>HOTEL BOM PRA CACHORRO</span>
+            </a>
+
+        </div>
+
+        <!-- Conteúdo FAQ -->
+        <div class="conteudo">
+            <div class="texto">
+                <h2>Perguntas Frequentes</h2>
+                <p>Aqui você encontra respostas para as dúvidas mais comuns sobre nossos serviços.</p>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">Qual é o horário de funcionamento do hotel?</button>
+                        <div class="faq-answer">
+                            Nosso hotel funciona de segunda a sexta das 06:00 às 19:00 e aos finais de semana das 07:00 às 15:00.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">É necessário agendar a hospedagem com antecedência?</button>
+                        <div class="faq-answer">
+                            Sim, recomendamos reservar com pelo menos 48 horas de antecedência para garantir disponibilidade.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Quais serviços estão incluídos na hospedagem?</button>
+                        <div class="faq-answer">
+                            Incluímos alimentação, acomodação confortável e recreação diária. Serviços extras, como banho e tosa, são cobrados à parte.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Meu cachorro precisa estar vacinado?</button>
+                        <div class="faq-answer">
+                            Sim, é obrigatório que todos os pets estejam com vacinação em dia para garantir segurança de todos.
+                        </div>
+                    </div>
+                    <!-- Perguntas adicionais -->
+                    <div class="faq-item">
+                        <button class="faq-question">Vocês aceitam cães de todas as raças e tamanhos?</button>
+                        <div class="faq-answer">
+                            Sim! Aceitamos cães de todas as raças e tamanhos, mas avaliamos o temperamento antes da hospedagem.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Como é feita a alimentação dos pets?</button>
+                        <div class="faq-answer">
+                            Servimos a alimentação fornecida pelo tutor ou oferecemos nosso cardápio balanceado, conforme necessidade do animal.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">É possível acompanhar meu pet durante a hospedagem?</button>
+                        <div class="faq-answer">
+                            Sim, enviamos fotos e vídeos diariamente para que você acompanhe seu pet à distância.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Quais formas de pagamento são aceitas?</button>
+                        <div class="faq-answer">
+                            Aceitamos cartões de crédito, PIX e transferências bancárias.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer igual à Home -->
+    <footer>
+        <div class="footer-content">
+            <!-- Seção de Telefone -->
+            <div class="footer-section">
+                <h3>📞 Telefone</h3>
+                <p>
+                    <a href="tel:+5521999999999">(21) 99999-9999</a><br>
+                    <a href="tel:+552112345678">(21) 1234-5678</a>
+                </p>
+            </div>
+
+            <!-- Seção de Email -->
+            <div class="footer-section">
+                <h3>✉️ Email</h3>
+                <p>
+                    <a href="mailto:SACbompracachorro@gmail.com">SACbompracachorro@gmail.com</a>
+                </p>
+            </div>
+
+            <!-- Seção de Horário -->
+            <div class="footer-section">
+                <h3>🕐 Horário de Funcionamento</h3>
+                <p>
+                    <strong>Segunda a Sexta:</strong> 06:00 às 19:00<br>
+                    <strong>Sábados, Domingos e Feriados:</strong> 07:00 às 15:00
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hotel Bom Pra Cachorro. Todos os direitos reservados. 🐾</p>
+        </div>
+    </footer>
+
+    <!-- JS FAQ -->
+    <script>
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach(item => {
+            const question = item.querySelector(".faq-question");
+            question.addEventListener("click", () => {
+                item.classList.toggle("active");
+            });
+        });
+    </script>
+
+</body>
+</html>
