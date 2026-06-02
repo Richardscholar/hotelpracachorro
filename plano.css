@@ -1,3 +1,7 @@
+/* ========================================
+   HOME PAGE STYLES - PADRONIZADO E ATUALIZADO
+======================================== */
+
 /* RESET */
 * {
   margin: 0;
@@ -17,7 +21,20 @@
   --transition: all 0.3s ease;
 }
 
-/* CABEÇÁRIO */
+/* BODY */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--orange-dark) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* CABEÇALHO */
 .cabeçario {
   display: flex;
   align-items: center;
@@ -87,7 +104,9 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
-/* Links individuais */
+
+/* Links individuais (PADRONIZADO com .faq incluído de forma limpa) */
+.faq,
 .sobre_nos,
 .contatos,
 .planos,
@@ -118,25 +137,10 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* BODY */
-body {
-  font-family: Arial, sans-serif;
+/* ========================================
+   CONTAINER PRINCIPAL E PLANOS
+======================================== */
 
-  background: linear-gradient(
-    135deg,
-    var(--primary-orange) 0%,
-    var(--orange-dark) 100%
-  );
-
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-}
-main {
-  flex: 1;
-}
-/* CONTAINER PRINCIPAL */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -145,7 +149,7 @@ main {
   padding-bottom: 40px;
 }
 
-/* LOGO */
+/* LOGO SECUNDÁRIA (Se usada) */
 .logo-planos {
   display: flex;
   align-items: center;
@@ -166,14 +170,11 @@ main {
   text-align: center;
   font-size: 42px;
   margin-bottom: 40px;
-
   color: var(--white);
   font-weight: 800;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-family: 'Poppins', Arial, sans-serif;
 }
 
@@ -183,13 +184,13 @@ main {
   max-width: 1200px;
   margin: 0 auto 40px auto;
   padding: 20px;
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 25px;
   flex-wrap: wrap;
 }
+
 /* CARD */
 .card {
   width: 320px;
@@ -197,40 +198,36 @@ main {
   border: 2px solid #f0e6d2;
   border-radius: 20px;
   padding: 25px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-
   transition: all 0.4s ease;
-
   overflow: hidden;
 }
 
-/* ESCONDER CONTEÚDO */
+/* ESCONDER CONTEÚDO PARA EFEITO HOVER */
 .info p,
 .beneficios {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-
   transition:
     opacity 0.4s ease,
     max-height 0.4s ease,
     margin-top 0.4s ease;
 }
 
-/* MOSTRAR SOMENTE O CARD HOVER */
+/* MOSTRAR CONTEÚDO NO HOVER */
 .card:hover .info p,
 .card:hover .beneficios {
   opacity: 1;
   max-height: 500px;
   margin-top: 15px;
 }
-/* LISTA */
+
+/* LISTA DE BENEFÍCIOS */
 .beneficios {
   list-style: none;
   text-align: left;
@@ -242,22 +239,20 @@ main {
   color: #333;
 }
 
-/* EMOJI */
+/* BOTOX / ICONE DO PET */
 .dog {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   background-color: #FFB733;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 45px;
   flex-shrink: 0;
 }
 
-/* INFORMAÇÕES */
+/* INFORMAÇÕES DO PLANO */
 .info {
   flex: 1;
 }
@@ -265,19 +260,19 @@ main {
 .info h3 {
   font-size: 30px;
   margin-bottom: 10px;
+  color: var(--dark-gray);
 }
 
-/* BOTÃO */
+/* BOTÃO DE CONTRATAÇÃO */
 .btn {
   padding: 12px 22px;
   border: none;
   border-radius: 25px;
-
   background-color: #FF8C00;
   color: white;
-
   cursor: pointer;
   font-size: 16px;
+  font-weight: 700;
   transition: all 0.3s ease;
 }
 
@@ -285,40 +280,15 @@ main {
   background-color: var(--orange-dark);
   transform: translateY(-2px);
 }
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
 
-  .titulo {
-    font-size: 32px;
-  }
-
-  .card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .dog {
-    width: 75px;
-    height: 75px;
-    font-size: 38px;
-  }
-
-  .info h3 {
-    font-size: 24px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-}
 /* ========================================
    FOOTER STYLES (REDUZIDO E PRETO)
 ======================================== */
 
 footer {
-  background-color: #000000; /* Fundo totalmente preto */
+  background-color: #000000;
   color: #FFFFFF;
-  padding: 15px 20px; /* Tamanho significativamente reduzido */
+  padding: 15px 20px;
   margin-top: 40px;
 }
 
@@ -339,7 +309,7 @@ footer {
 }
 
 .footer-image img {
-  height: 70px; /* Proporcional à caixa reduzida do rodapé */
+  height: 70px;
   width: auto;
   border-radius: 8px;
   object-fit: cover;
@@ -354,14 +324,14 @@ footer {
 .footer-section h3 {
   font-size: 1rem;
   margin-bottom: 5px;
-  color: #FFFFFF; /* Letras brancas destacadas */
+  color: #FFFFFF;
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .footer-section p {
   line-height: 1.4;
-  color: #FFFFFF; /* Letras brancas destacadas */
+  color: #FFFFFF;
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -388,10 +358,10 @@ footer {
 }
 
 /* ========================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE (MOBILE & TABLET)
 ======================================== */
- @media (max-width: 768px) {
 
+@media (max-width: 768px) {
   .cabeçario {
     flex-direction: column;
     gap: 15px;
@@ -407,9 +377,34 @@ footer {
     width: 100%;
   }
 
+  .titulo {
+    font-size: 32px;
+  }
+
   .card-planos {
     flex-direction: column;
     align-items: center;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .dog {
+    width: 75px;
+    height: 75px;
+    font-size: 38px;
+  }
+
+  .info h3 {
+    font-size: 24px;
+  }
+
+  .btn {
+    width: 100%;
   }
 
   .footer-content {
@@ -426,4 +421,3 @@ footer {
     font-size: 0.75rem;
   }
 }
-
